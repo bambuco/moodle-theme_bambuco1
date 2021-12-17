@@ -1,0 +1,57 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_bambuco1/frontpage_documents
+
+    Blocks drawer template
+
+}}
+{{#hasdocuments}}
+    <div id="frontpage-documents" class="frontpage-documents">
+        <div class="container">
+            <h2>{{#str}}documenttitle, theme_bambuco1{{/str}}</h2>
+            <h3>{{#str}}documentsubtitle, theme_bambuco1{{/str}}</h3>
+
+            <div class="documents-list">
+            {{#document}}
+                <div class="one-document">
+                    {{#icon}}
+                    <img class="icon" src="{{{ icon }}}" alt="{{{ icontext }}}" title="{{{ icontext }}}" />
+                    {{/icon}}
+                    {{^icon}}
+                    <div class="icon">
+                        {{{ icontext }}}
+                    </div>
+                    {{/icon}}
+                    <div class="info">
+                        <h4>{{{ name }}}</h4>
+                        <label>{{#str}}documenttypelabel, theme_bambuco1{{/str}} {{{ type }}}</label>
+                        <p>
+                            {{{ text }}}
+                        </p>
+
+                        <a href="{{{ url }}}" title="{{#str}}readmore, theme_bambuco1{{/str}}" target="_blank">
+                            {{#str}}readmore, theme_bambuco1{{/str}}
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            {{/document}}
+            </div>
+        </div>
+    </div>
+{{/hasdocuments}}

@@ -1,0 +1,135 @@
+    {{#hasblocks}}
+        <i id="sidepreopen-control"
+            aria-expanded="{{#draweropenright}}true{{/draweropenright}}{{^draweropenright}}false{{/draweropenright}}"
+            aria-controls="sidepre-blocks"
+            data-action="toggle-drawer"
+            data-side="right"
+            data-preference="sidepre-open"
+            title="{{#str}} showhideblocks, theme_bambuco1 {{/str}}">
+        </i>
+
+        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print">
+            {{{ sidepreblocks }}}
+        </section>
+    {{/hasblocks}}
+
+    {{{ output.standard_after_main_region_html }}}
+
+    {{#hasdrawertoggle}}
+        {{> theme_bambuco1/nav-drawer }}
+    {{/hasdrawertoggle}}
+</div><!-- Ends .page-wrapper -->
+
+{{> theme_bambuco1/footer }}
+
+</body>
+</html>
+{{#js}}
+require(['theme_boost/loader']);
+
+require(['theme_boost/drawer'], function(mod) {
+    mod.init();
+});
+
+require(['theme_bambuco1/metismenu', 'jquery'], function(metisMenu, $) {
+    $(".metismenu").metisMenu();
+
+    /*var $navbar = $('nav.navbar');
+    var menu_offset = $navbar.height();
+
+    $( window ).bind("scroll", function() {
+        var offset = $(this).scrollTop();
+
+        if (offset >= menu_offset) {
+            $navbar.addClass('scroll_top');
+        }
+        else if (offset < menu_offset) {
+            $navbar.removeClass('scroll_top');
+        }
+    });*/
+
+        $('#page-site-index #contactform').on('submit', function(e) {
+            e.preventDefault();
+
+            var $this = $(this);
+            var email = $this.find('[name="email"]').val().trim();
+            var message = $this.find('[name="message"]').val().trim();
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            $this.find('.has-danger').removeClass('has-danger');
+            $this.find('.invalid-feedback').hide();
+
+            if (!email.match(mailformat)) {
+                $this.find('.contactemailbox').addClass('has-danger');
+                $this.find('.contactemailbox .invalid-feedback').show();
+                $this.find('[name="email"]')[0].focus();
+                return false;
+            }
+
+            if (!message || message == '') {
+                $this.find('.contactmessagebox').addClass('has-danger');
+                $this.find('.contactmessagebox .invalid-feedback').show();
+                $this.find('[name="message"]')[0].focus();
+                return false;
+            }
+
+            var captcha = grecaptcha.getResponse();
+            if (!captcha || captcha == '') {
+                $this.find('.contactmsgcaptcha').show();
+                return false;
+            }
+
+            $this.addClass('loading');
+
+            $.post($this.attr('action'), $this.serialize(), function(data) {
+                var cssclass;
+
+                $('#contactresponsebox').removeClass('alert-success');
+                $('#contactresponsebox').removeClass('alert-danger');
+
+                if (data.success == true) {
+                    cssclass = '';
+                    $this.hide();
+                }
+                else {
+                    cssclass = 'alert-danger';
+                }
+
+                $('#contactresponsebox').addClass(cssclass);
+                $('#contactresponsebox').show();
+                $('#contactresponsebox').html(data.message);
+
+            }, 'json')
+            .done(function(data) {
+                $this.removeClass('loading');
+            });
+
+            return false;
+        });
+});
+
+require([], function() {
+    var iconsearch = document.querySelector('.bambuco1-search-input .slicon-magnifier');
+    var btnclosesearch = document.querySelector('.search-input-form .close-search');
+    var searchinputform = document.querySelector('.bambuco1-search-input');
+
+    if (iconsearch) {
+
+        var togglesearchinputform = function() {
+            searchinputform.classList.toggle('expanded');
+        }
+
+        iconsearch.onclick = togglesearchinputform;
+        btnclosesearch.onclick = togglesearchinputform;
+    }
+});
+
+require(['theme_bambuco1/accessibilitybar'], function(bar) {
+    bar.init();
+});
+
+require(['theme_bambuco1/themesettings'], function(themesettings) {
+    themesettings.init();
+});
+
+{{/js}}

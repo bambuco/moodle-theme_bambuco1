@@ -1,0 +1,107 @@
+.block_greatcourses.card {
+    border: none;
+    background-color: transparent;
+}
+
+#page-blocks-greatcourses-index {
+    .courses {
+        border-top: 1px solid #e7e7e7;
+    }
+
+    #region-main > .card {
+        border: none;
+
+        > .card-body {
+            padding: 0;
+        }
+    }
+}
+
+
+.block_greatcourses, #page-blocks-greatcourses-index {
+
+    .courses {
+        background-color: #f9f9f9;
+
+        .coursebox {
+            background-color: #fff;
+            border: 1px solid #e7e7e7;
+            width: 100%;
+            max-width: 330px;
+
+            .panel-heading {
+                border-bottom: 1px solid #e7e7e7;
+                padding: 20px;
+                font-size: 18px;
+
+                a {
+                    color: #15284b;
+                    font-weight: bold;
+                }
+            }
+
+            .panel-body {
+                padding: 20px;
+                text-align: left;
+
+                .courseimage {
+                    margin-bottom: 20px;
+                }
+            }
+
+            .panel-foot {
+                padding-bottom: 0;
+
+                .btn {
+                    width: 100%;
+                    background-color: transparent;
+                    color: #666666;
+                    background-color: #f1f1f1;
+                    padding: 10px 0;
+                    border-top: 1px solid #e7e7e7;
+                }
+            }
+        }
+
+        .coursebox.state-waiting {
+            .panel-body::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(20, 20, 20, 0.6);
+            }
+
+            .waiting-label {
+                background-color: transparent;
+                text-transform: uppercase;
+                font-size: 28px;
+                font-weight: bold;
+                border-top: 2px solid;
+                border-bottom: 2px solid;
+                left: 30px;
+                right: 30px;
+            }
+        }
+    }
+}
+
+#page-blocks-greatcourses-index .courses-sort li a:after {
+    background-color: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+#page-blocks-greatcourses-detail .coursebanner-box {
+
+    max-height: 200px;
+    overflow: hidden;
+
+    .coursetitle {
+        position: absolute;
+    }
+
+}

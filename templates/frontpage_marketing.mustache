@@ -1,0 +1,100 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_bambuco1/frontpage_marketing
+
+    Blocks drawer template
+
+    Example context (json): {
+        "shoulddisplaymarketing": true,
+        "marketing1icon": "https://iconurl...",
+        "marketing1heading": "The head title",
+        "marketing1subheading": "The subhead title",
+        "marketing1content": "The content",
+        "marketing1url": "https://marketingurl..."
+    }
+}}
+{{#shoulddisplaymarketing}}
+    <div id="frontpage-marketing" class="frontpage-marketing">
+        <div class="container">
+            {{#marketing1heading}}
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{{ marketing1icon }}}" />
+                    <h2>{{{ marketing1heading }}}</h2>
+                    <h3>{{{ marketing1subheading }}}</h3>
+                    <p>{{{ marketing1content }}}</p>
+                    {{#marketing1url}}
+                    <a class="btn btn-primary" href="{{{ marketing1url }}}">
+                        {{#str}}readmore, theme_bambuco1{{/str}}
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    {{/marketing1url}}
+                </div>
+            </div>
+            {{/marketing1heading}}
+            {{#marketing2heading}}
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{{ marketing2icon }}}" />
+                    <h2>{{{ marketing2heading }}}</h2>
+                    <h3>{{{ marketing2subheading }}}</h3>
+                    <p>{{{ marketing2content }}}</p>
+                    {{#marketing2url}}
+                    <a class="btn btn-primary" href="{{{ marketing2url }}}">
+                        {{#str}}readmore, theme_bambuco1{{/str}}
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    {{/marketing2url}}
+                </div>
+            </div>
+            {{/marketing2heading}}
+            {{#marketing3heading}}
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{{ marketing3icon }}}" />
+                    <h2>{{{ marketing3heading }}}</h2>
+                    <h3>{{{ marketing3subheading }}}</h3>
+                    <p>{{{ marketing3content }}}</p>
+                    {{#marketing3url}}
+                    <a class="btn btn-primary" href="{{{ marketing3url }}}">
+                        {{#str}}readmore, theme_bambuco1{{/str}}
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    {{/marketing3url}}
+                </div>
+            </div>
+            {{/marketing3heading}}
+            {{#marketing4heading}}
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{{ marketing4icon }}}" />
+                    <h2>{{{ marketing4heading }}}</h2>
+                    <h3>{{{ marketing4subheading }}}</h3>
+                    <p>{{{ marketing4content }}}</p>
+                    {{#marketing4url}}
+                    <a class="btn btn-primary" href="{{{ marketing4url }}}">
+                        {{#str}}readmore, theme_bambuco1{{/str}}
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    {{/marketing4url}}
+                </div>
+            </div>
+            {{/marketing4heading}}
+        </div>
+    </div>
+{{/shoulddisplaymarketing}}

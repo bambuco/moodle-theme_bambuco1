@@ -1,0 +1,94 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_bambuco1/frontpage_contact
+
+    Blocks drawer template
+
+}}
+{{#hascontact}}
+<div id="frontpage-contact" class="frontpage-contact">
+    <div class="container">
+        <h2>{{#str}}stayintouch, theme_bambuco1{{/str}}</h2>
+        <h3>{{#str}}contactsubtitle, theme_bambuco1{{/str}}</h3>
+        <div>
+            {{#mapurl}}
+                <div class="contact-map">
+                    <iframe src="{{{ mapurl }}}" allowfullscreen="" ></iframe>
+                </div>
+            {{/mapurl}}
+            {{#getintouchcontent}}
+            <div class="contact-formbox">
+                <p>{{{ getintouchcontent }}}</p>
+                {{#address}}<p><i class="fa fa-map-marker"></i> {{{ address }}}</p>{{/address}}
+                {{#mobile}}<p><i class="fa fa-phone"></i> {{{ mobile }}}</p>{{/mobile}}
+                {{#website}}<p><i class="fa fa-globe"></i><a href="{{{ website }}}" target="_blank"> {{{ website }}}</a></p>{{/website}}
+
+                {{#urlcontactform}}
+                    {{#captchacontactform}}
+                        <script src="https://www.google.com/recaptcha/api.js?hl=es"></script>
+                    {{/captchacontactform}}
+                    <form id="contactform" class="form-horizontal" action="{{{ urlcontactform }}}" method="post">
+                        <div class="form-group">
+                            <input name="name" type="name" class="form-control" placeholder="Tu nombre..." maxlength="40" />
+                        </div>
+                            <div class="form-group contactemailbox">
+                            <input name="email" type="email" class="form-control" placeholder="Tu correo electrónico..." maxlength="40" />
+                            <span class="invalid-feedback" style="display:none;">Ingrese una dirección de correo válida</span>
+                        </div>
+                        <div class="form-group contactmessagebox">
+                            <textarea name="message" class="form-control" style="height: 130px" placeholder="Escribe el mensaje..."></textarea>
+                            <span class="invalid-feedback" style="display:none;">Ingrese el mensaje</span>
+                        </div>
+                        {{#captchacontactform}}
+                        <div class="g-recaptcha" data-sitekey="{{{ captchacontactform }}}"></div>
+                        <span class="contactmsgcaptcha invalid-feedback" style="display:none;">Debe completar el captcha</span>
+                        {{/captchacontactform}}
+                        <div class="marco-boton-enviar">
+
+                            <button class="boton-enviar" type="submit">Enviar <i class="fa fa-angle-right icono-boton"></i></button>
+                        </div>
+                    </form>
+                    <div id="contactresponsebox" class="alert" style="display: none;"></div>
+                {{/urlcontactform}}
+            </div>
+            {{/getintouchcontent}}
+        </div>
+    </div>
+</div>
+{{/hascontact}}
+
+{{#enablemobile}}
+<div id="frontpage-apps" class="frontpage-apps">
+    <div class="container">
+        <h2>{{#str}}appstitle, theme_bambuco1{{/str}}</h2>
+        <h3>{{#str}}appssubtitle, theme_bambuco1{{/str}}</h3>
+        <div>
+            {{#appstore}}
+            <a href="{{{ appstore }}}" target="_blank">
+                <img src="{{{ imgappstore }}}" />
+            </a>
+            {{/appstore}}
+            {{#googleplay}}
+            <a href="{{{ googleplay}}}" target="_blank">
+                <img src="{{{ imggoogleplay }}}" />
+            </a>
+            {{/googleplay}}
+        </div>
+    </div>
+</div>
+{{/enablemobile}}

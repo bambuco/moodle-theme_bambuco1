@@ -1,0 +1,91 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_bambuco1/header
+
+    Page header template
+
+    Example context (json): {}
+}}
+
+{{> theme_bambuco1/accessibilitybar }}
+
+<nav class="navbar">
+    <div class="top-header-container">
+        <div id="top-header" class="container">
+
+            {{#hasdrawertoggle}}
+                <div data-region="drawer-toggle" class="d-lg-none d-inline-block mr-3 drawer-toggle">
+                    <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav"><i class="slicon-menu"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
+                </div>
+            {{/hasdrawertoggle}}
+
+            <div class="toploginmenu">
+                {{{ output.user_menu }}}
+
+                <div class="d-none d-lg-block">
+                    {{{ output.search_box }}}
+                </div>
+
+                <div class="nav-item lang-menu">
+                    {{{ output.render_lang_menu }}}
+                </div>
+
+                {{{ output.navbar_plugin_output }}}
+            </div>
+
+            <div class="secondarymenu">
+                {{#secondarymenu}}
+                    {{{ . }}}
+                {{/secondarymenu}}
+            </div>
+        </div>
+    </div>
+
+    <div id="second-bar" class="container">
+
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
+            {{^ output.get_logo }}
+                d-sm-inline
+            {{/ output.get_logo }}
+                ">
+            {{# output.get_logo }}
+                <span class="logo d-sm-inline">
+                    <img src="{{output.get_logo}}" alt="{{sitename}}">
+                </span>
+            {{/ output.get_logo }}
+            {{^ output.get_logo }}
+                <span class="site-name d-md-inline">{{{ sitename }}}</span>
+            {{/ output.get_logo }}
+        </a>
+
+        <ul class="navbar-nav d-md-flex custom-menus tohome">
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-home"></i></a></li>
+            <!-- custom_menu -->
+            {{{ output.custom_menu }}}
+        </ul>
+
+        <ul class="navbar-nav d-md-flex custom-menus nothome">
+            <li class="nav-item"><a class="nav-link" href="{{{ config.wwwroot }}}/?redirect=0"><i class="fa fa-home"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{{ config.wwwroot }}}/course">{{#str}}courses, theme_bambuco1{{/str}}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{{ config.wwwroot }}}/my">{{#str}}mycourses, theme_bambuco1{{/str}}</a></li>
+            <!-- page_heading_menu -->
+            {{{ output.page_heading_menu }}}
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,72 @@
+.inicio-slogan {
+    text-align: center;
+    margin: 37px 0;
+  }
+
+  .txt_cesvirtual {
+    color: #15284b;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 27px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .txt_slogan {
+    font-size: 20px;
+    color: #00abaf;
+    text-align: center;
+    line-height: 24px;
+    padding-top: 5px;
+    font-weight: normal;
+  }
+
+  #top-footer .plugins_standard_footer_html .mobilefooter a.btn {
+    display: none;
+  }
+
+  /* ------ Contacto ----- */
+
+
+  #contactresponsebox img {
+    max-width: 80px;
+  }
+
+  #contactform {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  #contactform.loading::after {
+    position: absolute;
+    content: "Enviando...";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: inline;
+    background: rgba(88, 88, 88, 0.7);
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+    padding: 25%;
+  }
+
+  #contactform .invalid-feedback {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+
+  /* ------ Contacto ----- */
+
+  /*Solo digital*/
+  #page-site-index #top-blocks {
+    border-top: 1px solid #e7e7e7;
+  }
+
+  .sitesummary {
+    border: none;
+  }

@@ -1,0 +1,182 @@
+#top-footer {
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    padding: 40px 15px 140px;
+    color: $headings-color;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-color: #15284b;
+    background-position: center bottom 20px;
+
+    a {
+        color: #fff;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h3 {
+        color: $brand-primary;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .recommendationsbox {
+        border-bottom: solid 1px #3d4c68;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin: 0 auto 30px;
+        padding-bottom: 20px;
+
+        > div {
+            display: flex;
+            flex-wrap: wrap;
+            width: 270px;
+            padding: 10px 0;
+
+            a {
+                margin-right: 10px;
+                > img {
+                    -webkit-transition: .3s ease-in-out;
+                    transition: .3s ease-in-out;
+                    width: 31px;
+                }
+            }
+
+            .linea-separador-vertical {
+                border-left: solid 1px #3d4c68;
+                margin: 0 14px 0 5px;
+            }
+        }
+
+        > p {
+            max-width: 520px;
+            margin: 0;
+            padding-right: 20px;
+        }
+    }
+
+    .contact ul li {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+
+        i {
+            margin-right: 3px;
+            min-width: 20px;
+        }
+
+        a, i {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .social {
+        text-align: center;
+        ul li {
+            display: inline;
+
+            a {
+                text-decoration: none;
+                color: #15284b;
+
+                &.facebook {
+                    background-color: $m-facebook-color;
+                    &:hover {
+                        background-color: darken($m-facebook-color, 20%);
+                    }
+                }
+
+                &.twitter {
+                    background-color: $m-twitter-color;
+                    &:hover {
+                        background-color: darken($m-twitter-color, 20%);
+                    }
+                }
+
+                &.linkedin {
+                    background-color: $m-linkedin-color;
+                    &:hover {
+                        background-color: darken($m-linkedin-color, 20%);
+                    }
+                }
+
+                &.youtube {
+                    background-color: $m-youtube-color;
+                    &:hover {
+                        background-color: darken($m-youtube-color, 20%);
+                    }
+                }
+
+                &.instagram {
+                    background-color: $m-instagram-color;
+                    &:hover {
+                        background-color: darken($m-instagram-color, 20%);
+                    }
+                }
+
+                &.whatsapp {
+                    background-color: $m-whatsapp-color;
+                    &:hover {
+                        background-color: darken($m-whatsapp-color, 20%);
+                    }
+                }
+            }
+        }
+
+        ul.cachesused li {
+            display: block;
+        }
+    }
+
+    .plugins_standard_footer_html {
+        .mobilefooter a.btn {
+            white-space: inherit;
+        }
+    }
+}
+
+#page-footer {
+    background-color: #e1e1e1;
+    text-align: center;
+    min-height: inherit;
+    color: #6f6f6f;
+
+    a {
+        color: $brand-primary;
+    }
+
+    .madeby {
+        font-size: 14px;
+        text-align: right;
+
+        a {
+            color: #6f6f6f;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .legal-footer {
+        text-align: center;
+        padding-top: 20px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #top-footer .social {
+        text-align: left;
+
+        .plugins_standard_footer_html {
+            padding-left: 1rem;
+        }
+    }
+}
